@@ -1,0 +1,27 @@
+<app-header></app-header>
+<div class="container">
+  <div class="image-row">
+    <div class="image-column" *ngFor="let image of images; let i = index">
+      <img
+        [src]="image.download_url"
+        (click)="open(); currentSlide(i + 1)"
+        [id] = "i"
+        class="hover-shadow"
+      />
+    </div>
+  </div>
+
+  <div id="imgModal" class="slide-modal">
+    <span class="close" (click)="close()">&times;</span>
+    <div class="slide-modal-content">
+      <div class="img-slides" *ngFor="let image of images; let i = index">
+        <div class="numbertext"><b>{{i + 1 }} / {{ images.length }}</b></div>
+        <img src="{{ image.download_url }}"/>
+        <div class="text"><b>Author: {{ image.author }}</b></div>
+      </div>
+
+      <a class="prev" (click)="moveSlides(-1)">&#10094;</a>
+      <a class="next" (click)="moveSlides(1)">&#10095;</a>
+    </div>
+  </div>
+</div>

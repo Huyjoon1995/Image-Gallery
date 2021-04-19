@@ -2,12 +2,7 @@
 <div class="container">
   <div class="image-row">
     <div class="image-column" *ngFor="let image of images; let i = index">
-      <img
-        [src]="image.download_url"
-        (click)="open(); currentSlide(i + 1)"
-        [id] = "i"
-        class="hover-shadow"
-      />
+      <img [src]="image.download_url" (click)="open(); currentSlide(i + 1)" [id] = "i" class="hover-shadow"/>
     </div>
   </div>
 
